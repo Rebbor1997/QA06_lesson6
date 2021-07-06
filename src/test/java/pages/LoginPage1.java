@@ -6,15 +6,17 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage extends BasePage {
-    // Селекторы
+public class LoginPage1 extends BasePage {
+
+    //Селекторы
     private final static By username_Input_By = By.id("user-name");
     private final static By password_Input_By = By.id("password");
     private final static By login_Button_By = By.id("login-button");
-    private final static By error_Label_By = By.tagName("h3");
+    private final static By error_By = By.tagName("h3");
 
-    // Конструктор
-    public LoginPage(WebDriver driver, boolean openPageByUrl) {
+
+    //Конструктор
+    public LoginPage1(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
 
@@ -32,22 +34,24 @@ public class LoginPage extends BasePage {
         }
     }
 
-    // Getter
+    protected void openPage1() {
+        driver.get("https://www.saucedemo.com/");
+    }
+    //Getter
     public WebElement getUsernameInput() { return driver.findElement(username_Input_By); }
-    public WebElement getPasswordInput() { return driver.findElement(password_Input_By); }
-    public WebElement getLoginButton() { return driver.findElement(login_Button_By); }
-    public WebElement getErrorLabel() { return driver.findElement(error_Label_By); }
+    public WebElement getPasswordInput() {return driver.findElement(password_Input_By); }
+    public WebElement getLoginButton() {return driver.findElement(login_Button_By); }
 
-    // Атомартные методы по работе с элементами
+      //К второму пользователю
+    public WebElement getLoginError() {return driver.findElement(error_By); }
+    public String getLoginErrorText() { return getLoginError().getText(); }
+
+    //Атомарные методы по работе с методами
     public void setUsername(String text) {
         getUsernameInput().sendKeys(text);
     }
-
-    public void setPassword(String text) {
-        getPasswordInput().sendKeys(text);
-    }
-
+    public void setPassword(String text) { getPasswordInput().sendKeys(text); }
     public void clickLoginButton() {
-        getLoginButton().click();
-    }
+        getLoginButton().click(); }
+
 }
