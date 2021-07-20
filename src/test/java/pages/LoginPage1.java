@@ -15,6 +15,8 @@ public class LoginPage1 extends BasePage {
     private final static By error_By = By.tagName("h3");
 
 
+
+
     //Конструктор
     public LoginPage1(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -53,5 +55,7 @@ public class LoginPage1 extends BasePage {
     public void setPassword(String text) { getPasswordInput().sendKeys(text); }
     public void clickLoginButton() {
         getLoginButton().click(); }
+
+
 
 }

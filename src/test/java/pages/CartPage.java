@@ -14,6 +14,9 @@ public class CartPage extends BasePage {
     private final static By cart_By= By.className("shopping_cart_badge");
     private final static By checkout_By= By.id("checkout");
 
+    private final static String product_removeCart = "//div[.= 'replace']/ancestor::div[@class='cart_item_label']//button";
+
+
 
 
     public CartPage(WebDriver driver, boolean openPageByUrl) {
@@ -51,6 +54,17 @@ public class CartPage extends BasePage {
 
     public WebElement getCheckout() { return driver.findElement(checkout_By); }
     public void  clickCheckout() {getCheckout().click();}
+
+    //удаление товара через степ
+    public WebElement getRemoveCartElement(String productName) {
+        return driver.findElement(By.xpath(product_removeCart.replace("replace", productName)));
+    }
+
+    public void removeElementCart (String productName) {
+        getRemoveCartElement(productName).click();
+    }
+
+
 
 
 }

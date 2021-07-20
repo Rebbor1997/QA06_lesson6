@@ -9,12 +9,10 @@ import org.openqa.selenium.WebElement;
 public class ProductsPage1 extends BasePage {
 
     private final static By title_new_label_By= By.className("title");
-    private final static By add_label_By = By.id("add-to-cart-sauce-labs-backpack");
-    private final static By remove_label_By = By.name("remove-sauce-labs-backpack");
-    private final static By cart_label_By = By.className("shopping_cart_link");
-    private final static By add_label2_By = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
-    private final static By remove_label2_By = By.id("remove-sauce-labs-bolt-t-shirt");
-    private final static By cart_label2_By = By.className("shopping_cart_badge");
+
+
+    private final static String product_addToCart = "//div[.= 'replace']/ancestor::div[@class='inventory_item_description']//button";
+    private final static By cart_By = By.className("shopping_cart_link");
 
 
     public ProductsPage1(WebDriver driver, boolean openPageByUrl){
@@ -37,23 +35,16 @@ public class ProductsPage1 extends BasePage {
     public WebElement getTitleNewLabel() { return driver.findElement(title_new_label_By); }
     public String getTitleNewText() { return getTitleNewLabel().getText(); }
 
-    public WebElement getAddButton() {return driver.findElement(add_label_By); }
-    public void clickAddButton() { getAddButton().click(); }
+    //Добавление товара через степ
+    public WebElement getAddToCartElement(String productName) {
+        return driver.findElement(By.xpath(product_addToCart.replace("replace", productName)));
+    }
 
-    public WebElement getRemoveLabel() { return driver.findElement(remove_label_By); }
-    public String getRemoveText() { return getRemoveLabel().getText(); }
+    public void addToCard (String productName) {
+        getAddToCartElement(productName).click();
+    }
 
-    public WebElement getCartLabel() { return driver.findElement(cart_label_By); }
-    public String getCartText() { return getCartLabel().getText(); }
-
-    public WebElement getAddButton2() {return driver.findElement(add_label2_By); }
-    public void clickAddButton2() { getAddButton2().click(); }
-
-    public WebElement getRemoveLabel2() { return driver.findElement(remove_label2_By); }
-    public String getRemoveText2() { return getRemoveLabel2().getText(); }
-
-    public WebElement getCartLabel2() { return driver.findElement(cart_label2_By); }
-    public String getCartText2() { return getCartLabel2().getText(); }
-
+    public WebElement getCart() {return driver.findElement(cart_By);}
+    public void clickCart(){getCart().click();}
 
 }

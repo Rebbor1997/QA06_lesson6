@@ -7,14 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PaymentPage extends BasePage {
+
     private final static By first_name_By = By.id("first-name");
     private final static By last_name_By = By.id("last-name");
     private final static By postal_code_By = By.id("postal-code");
     private final static By continue_By = By.id("continue");
     private final static By finish_By = By.id("finish");
-    private final static By order_By = By.className("complete-text");
-
-
 
 
     public PaymentPage(WebDriver driver, boolean openPageByUrl) {
@@ -41,7 +39,7 @@ public class PaymentPage extends BasePage {
     public WebElement getPostalCodeInput() { return driver.findElement(postal_code_By); }
     public WebElement getContinueClick() { return driver.findElement(continue_By); }
     public WebElement getFinish() { return driver.findElement(finish_By); }
-    public WebElement getOrder() { return driver.findElement(order_By); }
+
 
 
     public void setFirstName(String text) {
@@ -51,7 +49,6 @@ public class PaymentPage extends BasePage {
     public void setPostalCode (String text){ getPostalCodeInput().sendKeys(text); }
     public void ContinueClick (){ getContinueClick().click(); }
     public void FinishClick (){ getFinish().click(); }
-    public String getOrderText() {return getOrder().getText();  }
 
 }
 

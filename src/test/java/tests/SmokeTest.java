@@ -10,16 +10,16 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 
 import pages.ProductsPage;
+import steps.LoginStep;
 
 public class SmokeTest extends BaseTest {
 
     @Test
-    public void PositiveLoginTest() {
+    public void PositiveLoginTest() throws InterruptedException {
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.Login(properties.getUsername(), properties.getPassword());
 
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUsername("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+
 
         ProductsPage productsPage = new ProductsPage(driver, false);
 
@@ -28,12 +28,12 @@ public class SmokeTest extends BaseTest {
     }
     @Test
     public void negativeLoginTest() {
-        LoginPage loginPage = new LoginPage(driver, true);
-        loginPage.setUsername("asdasds");
-        loginPage.setPassword("adsasd");
-        loginPage.clickLoginButton();
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.Login("asdasds", "adsasd");
 
-        Assert.assertEquals(loginPage.getErrorLabel().getText() ,
+
+
+        Assert.assertEquals(new LoginPage(driver, false).getErrorLabel().getText() ,
                 "Epic sadface: Username and password do not match any user in this service");
     }
 }
