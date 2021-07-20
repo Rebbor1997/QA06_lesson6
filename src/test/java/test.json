@@ -1,0 +1,12 @@
+{
+  "username" : "test",
+  "age" : 45,
+  "smoking" : false,
+  "object" : null,
+  "relatives" : ["Петя", "Иван"],
+  "teachers" : {
+    "surname" : "Иванов",
+    "firstname" : "Иван",
+    "age" : 38
+  }
+}
