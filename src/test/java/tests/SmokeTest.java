@@ -1,5 +1,6 @@
 package tests;
 
+import baseEntities.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
@@ -7,23 +8,32 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.ProductPages;
 
-public class SmokeTest {
+import pages.ProductsPage;
+import steps.LoginStep;
+
+public class SmokeTest extends BaseTest {
 
     @Test
-    public void PositiveLogintest() {
-        WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        WebDriver driver = new ChromeDriver();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setUsername("standard_user");
-        loginPage.getLoginButton("");
-        loginPage.clickLoginButton();
-
-        ProductPages productPages = new ProductPages(driver);
-
-        Assert.assertEquals(productPages.getTitleText(), "PRODUCTS", "Страница Products", );
+    public void PositiveLoginTest() throws InterruptedException {
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.Login(properties.getUsername(), properties.getPassword());
 
 
+
+        ProductsPage productsPage = new ProductsPage(driver, false);
+
+        Assert.assertEquals(productsPage.getTitleText(), "PRODUCTS", "Страница Products не открылась.");
+
+    }
+    @Test
+    public void negativeLoginTest() {
+        LoginStep loginStep = new LoginStep(driver);
+        loginStep.Login("asdasds", "adsasd");
+
+
+
+        Assert.assertEquals(new LoginPage(driver, false).getErrorLabel().getText() ,
+                "Epic sadface: Username and password do not match any user in this service");
     }
 }
