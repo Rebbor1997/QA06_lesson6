@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <announcement null="true" />
+    <completed_on null="true" />
+    <id>2</id>
+    <is_completed>false</is_completed>
+    <name>Lesson13_project</name>
+    <show_announcement>false</show_announcement>
+    <suite_mode>1</suite_mode>
+    <url>https://aqa06onl02.testrail.io/index.php?/projects/overview/2</url>
+</root>
