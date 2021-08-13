@@ -22,7 +22,6 @@ public abstract class BasePage {
         }
         waitForOpen();
     }
-
     protected void waitForOpen() {
         int secondsCount = 0;
         boolean isPageOpenedIndicator = isPageOpened();
@@ -36,7 +35,6 @@ public abstract class BasePage {
             secondsCount++;
             isPageOpenedIndicator = isPageOpened();
         }
-
         if (!isPageOpenedIndicator) {
             throw new AssertionError("Page was not opened.");
         }

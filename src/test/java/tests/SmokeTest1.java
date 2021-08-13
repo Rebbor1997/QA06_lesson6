@@ -43,7 +43,7 @@ public class SmokeTest1 extends BaseTest {
     @Test(description = "Второй тест")
     public void positiveLoginTest1 (){
         LoginStep loginStep = new LoginStep(driver);
-        loginStep.loginTwoUser(properties.getUsername1(), properties.getPassword());
+        loginStep.loginTwoUser (properties.getUsername1(), properties.getPassword());
 
         Assert.assertTrue(false);
 

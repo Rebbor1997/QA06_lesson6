@@ -26,7 +26,7 @@ public class PaymentPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        try {
+        try  {
             return getContinueClick().isDisplayed();
         } catch (NoSuchElementException ex) {
             return false;
@@ -39,8 +39,6 @@ public class PaymentPage extends BasePage {
     public WebElement getContinueClick() { return driver.findElement(continue_By); }
     public WebElement getFinish() { return driver.findElement(finish_By); }
 
-
-
     public void setFirstName(String text) {
         getFirstNameInput().sendKeys(text);
     }
@@ -48,7 +46,6 @@ public class PaymentPage extends BasePage {
     public void setPostalCode (String text){ getPostalCodeInput().sendKeys(text); }
     public void ContinueClick (){ getContinueClick().click(); }
     public void FinishClick (){ getFinish().click(); }
-
 }
 
 

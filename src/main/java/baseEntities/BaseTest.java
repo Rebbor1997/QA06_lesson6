@@ -18,6 +18,7 @@ public class BaseTest {
     public WebDriver driver;
     protected ReadProperties properties;
 
+
     @BeforeTest
     public void setupTest(){
 

@@ -21,7 +21,7 @@ public class ProductsPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        try {
+        try  {
             return getTitleLabel().isDisplayed();
         }catch (NoSuchElementException ex){
             return false;

@@ -38,6 +38,8 @@ public class BrowserService {
                 throw new AssertionError("Данный браузер не поддерживается.");
         }
     }
+
+
     public WebDriver getDriver() {
         return driver;
     }

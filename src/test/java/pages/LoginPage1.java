@@ -33,6 +33,7 @@ public class LoginPage1 extends BasePage {
         }
     }
 
+
     protected void openPage1() {
         driver.get("https://www.saucedemo.com/");
     }
@@ -52,7 +53,4 @@ public class LoginPage1 extends BasePage {
     public void setPassword(String text) { getPasswordInput().sendKeys(text); }
     public void clickLoginButton() {
         getLoginButton().click(); }
-
-
-
 }

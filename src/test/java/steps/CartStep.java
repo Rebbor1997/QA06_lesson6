@@ -8,7 +8,7 @@ import pages.PaymentPage;
 
 public class CartStep extends BaseStep {
 
-    public CartStep(WebDriver driver) {
+    public CartStep(WebDriver driver)  {
         super(driver);
     }
 

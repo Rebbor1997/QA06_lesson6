@@ -11,7 +11,7 @@ public class ProductsPage1 extends BasePage {
     private final static By title_new_label_By= By.className("title");
 
     private final static String product_addToCart = "//div[.= 'replace']/ancestor::div[@class='inventory_item_description']//button";
-    private final static By cart_By = By.className("shopping_cart_link");
+    private final static By cart_By = By.className ("shopping_cart_link");
 
     public ProductsPage1(WebDriver driver, boolean openPageByUrl){
         super(driver, openPageByUrl);

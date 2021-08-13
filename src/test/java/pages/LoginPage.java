@@ -33,7 +33,6 @@ public class LoginPage extends BasePage {
     }
 
     // Getter
-
     public WebElement getUsernameInput() { return driver.findElement(username_Input_By); }
     public WebElement getPasswordInput() { return driver.findElement(password_Input_By); }
     public WebElement getLoginButton() { return driver.findElement(login_Button_By); }

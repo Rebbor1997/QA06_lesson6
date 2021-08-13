@@ -17,12 +17,11 @@ import steps.LoginStep;
 
 public class SmokeTest extends BaseTest {
 
-
     @Issue("0")
     @TmsLink("4")
     @Test
     public void PositiveLoginTest() throws InterruptedException {
-        LoginStep loginStep = new LoginStep(driver);
+        LoginStep loginStep = new LoginStep (driver);
         loginStep.Login(properties.getUsername(), properties.getPassword());
 
         ProductsPage productsPage = new ProductsPage(driver, false);

@@ -8,7 +8,7 @@ import pages.ProductsPage1;
 
 public class OrderStep extends BaseStep {
 
-    public OrderStep(WebDriver driver) {
+    public OrderStep(WebDriver driver)  {
         super(driver);
     }
 
