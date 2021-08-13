@@ -25,6 +25,4 @@ public class CartStep extends BaseStep {
         paymentPage.ContinueClick();
         paymentPage.FinishClick();
     }
-
-
 }

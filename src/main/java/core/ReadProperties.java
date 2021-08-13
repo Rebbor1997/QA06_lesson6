@@ -31,7 +31,4 @@ public class ReadProperties {
     public String getFirstname(){return properties.getProperty("firstname");}
     public String getLastname(){return properties.getProperty("lastname");}
     public String getZip(){return properties.getProperty("zip");}
-
-
-
 }

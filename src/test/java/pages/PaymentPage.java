@@ -14,7 +14,6 @@ public class PaymentPage extends BasePage {
     private final static By continue_By = By.id("continue");
     private final static By finish_By = By.id("finish");
 
-
     public PaymentPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }

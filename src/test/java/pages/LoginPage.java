@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
     // Селекторы
-
     private final static By username_Input_By = By.id("user-name");
     private final static By password_Input_By = By.id("password");
     private final static By login_Button_By = By.id("login-button");

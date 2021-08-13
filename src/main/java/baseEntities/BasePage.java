@@ -20,7 +20,6 @@ public abstract class BasePage {
         if (openPageByUrl) {
             openPage();
         }
-
         waitForOpen();
     }
 
@@ -34,7 +33,6 @@ public abstract class BasePage {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             secondsCount++;
             isPageOpenedIndicator = isPageOpened();
         }

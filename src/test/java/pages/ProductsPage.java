@@ -29,5 +29,4 @@ public class ProductsPage extends BasePage {
     }
     public WebElement getTitleLabel(){ return driver.findElement(title_label_By); }
     public String getTitleText() {return getTitleLabel().getText();}
-
 }

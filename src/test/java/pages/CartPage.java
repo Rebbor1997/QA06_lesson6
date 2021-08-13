@@ -16,9 +16,6 @@ public class CartPage extends BasePage {
 
     private final static String product_removeCart = "//div[.= 'replace']/ancestor::div[@class='cart_item_label']//button";
 
-
-
-
     public CartPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
