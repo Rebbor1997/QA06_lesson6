@@ -1,29 +1,43 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.DriverManagerType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import baseEntities.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CheckoutCompletionPage;
 import pages.LoginPage;
-import pages.ProductPages;
+import pages.ProductsPage;
+import steps.LoginStep;
+import steps.ProductsStep;
 
-public class SmokeTest {
+public class SmokeTest extends BaseTest {
 
     @Test
-    public void PositiveLogintest() {
-        WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        WebDriver driver = new ChromeDriver();
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.setUsername("standard_user");
-        loginPage.getLoginButton("");
-        loginPage.clickLoginButton();
+    public void criticalPathTest(){
+        CheckoutCompletionPage checkoutCompletionPage = new LoginPage(browsersService, true)
+                .setUserName("standard_user")
+                .setPassword("secret_sauce")
+                .successLoginButtonClick()
+                .addItemToCart("Sauce Labs Backpack")
+                .cartBadgeClick()
+                .checkoutButtonClick()
+                .setFirstName("Fil")
+                .setLastName("Bob")
+                .setZipcode("242545")
+                .continueButtonClick()
+                .finishButtonClick();
 
-        ProductPages productPages = new ProductPages(driver);
-
-        Assert.assertEquals(productPages.getTitleText(), "PRODUCTS", "Страница Products", );
-
-
+        Assert.assertEquals(checkoutCompletionPage.getCompletionMessage().trim(), "THANK YOU FOR YOUR ORDER");
     }
+
+    @Test
+    public void loginFailedTest(){
+        LoginPage loginPage = new LoginPage(browsersService, true)
+                .setUserName("locked_out_user")
+                .setPassword("secret_sauce")
+                .loginButtonClick();
+
+        Assert.assertEquals(loginPage.getErrorMessage().getText().trim(),"Epic sadface: Sorry, this user has been locked out.");
+    }
+
+
 }
