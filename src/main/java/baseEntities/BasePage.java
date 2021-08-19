@@ -1,42 +1,47 @@
 package baseEntities;
 
-import core.ReadProperties;
-import org.openqa.selenium.WebDriver;
-
-import java.util.Properties;
+import core.BrowsersService;
 
 public abstract class BasePage {
-    protected static final int WAIT_FOR_PAGE_LOADING_SEC = 15;
-    protected WebDriver driver;
-    protected ReadProperties properties;
+    protected static final int WAIT_FOR_PAGE_LOAD_IN_SECONDS = 5;
+    protected final BrowsersService browsersService;
 
+    /**
+     * In subclasses  should be used for page opening
+     */
     protected abstract void openPage();
+
+    /**
+     * checks is page opened
+     *
+     * @return true if opened
+     */
     public abstract boolean isPageOpened();
 
-    public BasePage(WebDriver driver, boolean openPageByUrl) {
-        this.driver = driver;
-        properties = new ReadProperties();
+    public BasePage(BrowsersService browsersService, boolean openPageByUrl) {
+        this.browsersService = browsersService;
 
         if (openPageByUrl) {
             openPage();
         }
+
         waitForOpen();
     }
+
+    /**
+     * Waiting for page opening
+     */
     protected void waitForOpen() {
         int secondsCount = 0;
         boolean isPageOpenedIndicator = isPageOpened();
-
-        while (!isPageOpenedIndicator && secondsCount < WAIT_FOR_PAGE_LOADING_SEC) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        while (!isPageOpenedIndicator && secondsCount < WAIT_FOR_PAGE_LOAD_IN_SECONDS) {
+            browsersService.sleep(1000);
             secondsCount++;
             isPageOpenedIndicator = isPageOpened();
         }
+
         if (!isPageOpenedIndicator) {
-            throw new AssertionError("Page was not opened.");
+            throw new AssertionError("Page was not opened");
         }
     }
 }

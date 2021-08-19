@@ -1,36 +1,37 @@
 package baseEntities;
 
-import core.BrowserService;
+import core.BrowsersService;
 import core.ReadProperties;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.DriverManagerType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import javafx.util.Builder;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import utils.Listener;
 
+import javax.xml.bind.Marshaller;
 
 @Listeners(Listener.class)
-public class BaseTest {
-    public WebDriver driver;
-    protected ReadProperties properties;
+public abstract class BaseTest {
+    public BrowsersService browsersService;
 
 
-    @BeforeTest
-    public void setupTest(){
 
-        properties = new ReadProperties();
-    }
+   /* @BeforeSuite
+    public void prepareData(){
+        correctUser = Builder
+    }*/
+
     @BeforeMethod
-    public void setupMethod(){
-
-        driver = new BrowserService().getDriver();
+    public void openService() {
+        browsersService = new BrowsersService();
+        //browsersService.getDriver().get(ReadProperties.getInstance().getURL());
     }
+
     @AfterMethod
-    public void tearDownMethod(){
-        driver.quit();
+    public void closeService() {
+        browsersService.getDriver().quit();
+        browsersService = null;
     }
 }
