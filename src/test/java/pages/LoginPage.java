@@ -45,7 +45,7 @@ public class LoginPage extends BasePage {
     }
 
     // Атомарные методы
-    public LoginPage setUserName (String userName){
+    public LoginPage setUserName (String userName) {
         getUsernameField().sendKeys(userName);
         return this;
     }

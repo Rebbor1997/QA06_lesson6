@@ -4,24 +4,25 @@ import baseEntities.BaseStep;
 import core.BrowsersService;
 import models.User;
 import pages.LoginPage;
+import pages.ProductsPage;
+
 
 public class LoginStep extends BaseStep {
+    private LoginPage loginPage;
+    private ProductsPage productsPage;
+
     public LoginStep(BrowsersService browsersService) {
         super(browsersService);
     }
 
-    public void login(){
-        LoginPage loginPage = new LoginPage(browsersService, true);
-        loginPage.setUserName("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.loginButtonClick();
-    }
-
-    public ProductsStep loginValueObject(User user){
-        LoginPage loginPage = new LoginPage(browsersService, true);
-        loginPage.setUserName(user.getUsername());
-        loginPage.setPassword(user.getPassword());
-        loginPage.loginButtonClick();
+    // Для работы с Lombok
+    public ProductsStep successLogin(User user){
+        logger.info("Начало successLogin");
+          new LoginPage(browsersService, true)
+                 .setUserName(user.getUsername())
+                 .setPassword(user.getPassword())
+                 .successLoginButtonClick();
+        logger.info("Конец successLogin");
         return new ProductsStep(browsersService);
     }
 }

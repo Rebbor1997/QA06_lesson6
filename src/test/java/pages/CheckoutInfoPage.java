@@ -26,7 +26,7 @@ public class CheckoutInfoPage extends BasePage {
     }
 
     @Override
-    public boolean isPageOpened() {
+    public boolean isPageOpened()  {
         try {
             return getTitleMessage().isDisplayed();
         } catch (NoSuchElementException ex) {

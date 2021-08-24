@@ -31,7 +31,7 @@ public class CheckoutOverviewPage extends BasePage {
         super(browsersService, openPageByURL);
     }
 
-    public WebElement getOverviewMessage() {
+    public WebElement getOverviewMessage()  {
         return browsersService.getDriver().findElement(checkout_Overview_Title_By);
     }
 

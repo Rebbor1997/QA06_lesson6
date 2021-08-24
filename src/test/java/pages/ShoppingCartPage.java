@@ -75,7 +75,7 @@ public class ShoppingCartPage extends BasePage {
         return getPriceOfAddedItem().getText();
     }
 
-    public ShoppingCartPage clickRemoveButton(String productName) {
+    public ShoppingCartPage clickRemoveButton(String productName)  {
         getRemoveItemButton(productName).click();
         return this;
     }

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import wrappers.UIElement;
 
 
-public class CheckoutCompletionPage extends BasePage {
+public class CheckoutCompletionPage extends BasePage  {
     private final static String endpoint = "checkout-complete.html";
 
     private final static By checkout_Completion_By = By.className("complete-header");

@@ -1,0 +1,13 @@
+1. loginLevelsTest is started...: Logger=tests.LoggerTest 18 2021-08-24 22:06:34  
+2. Начало successLogin: Logger=steps.LoginStep 36 2021-08-24 22:06:34  
+3. Конец successLogin: Logger=steps.LoginStep 41 2021-08-24 22:06:35  
+4. Step1 - ввод корректного логина: Logger=tests.LoggerTest 21 2021-08-24 22:06:35  
+5. Начало addItemToCart: Logger=steps.ProductsStep 31 2021-08-24 22:06:35  
+6. Step2 - выбор товара в корзину: Logger=tests.LoggerTest 24 2021-08-24 22:06:35  
+7. Конец addItemToCart: Logger=steps.ProductsStep 38 2021-08-24 22:06:35  
+8. Step3 - ввод firstName и lastName, заказ товара: Logger=tests.LoggerTest 28 2021-08-24 22:06:36  
+9. loginLevelsTest is finished.: Logger=tests.LoggerTest 29 2021-08-24 22:06:36  
+1. Начало successLogin: Logger=steps.LoginStep 20 2021-08-24 22:10:17  
+2. Конец successLogin: Logger=steps.LoginStep 25 2021-08-24 22:10:18  
+3. Начало addItemToCart: Logger=steps.ProductsStep 18 2021-08-24 22:10:18  
+4. Конец addItemToCart: Logger=steps.ProductsStep 25 2021-08-24 22:10:19  

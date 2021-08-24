@@ -41,7 +41,7 @@ public class ProductsPage extends BasePage {
 
 
     // Atomic Methods
-    public ProductsPage addItemToCart(String productName){
+    public ProductsPage addItemToCart(String productName) {
         getItemAddToCartButton(productName).click();
         return this;
     }
